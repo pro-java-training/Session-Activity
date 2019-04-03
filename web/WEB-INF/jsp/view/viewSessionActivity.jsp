@@ -13,8 +13,8 @@
 </head>
 <body>
     <h2>Session Properties</h2>
-    Session id: <%= session.getId() %><br/>
-    is new : <%= session.isNew() %><br/>
+    Session id: <%= session.getId() %><br/> <%-- 获取sessionId --%>
+    is new : <%= session.isNew() %><br/> <%-- 判断session是否是新创建的 --%>
     Session created: <%= format.format(new Date(session.getCreationTime())) %><br/>
     <h2>Activities of This Session</h2>
     <%
@@ -22,13 +22,15 @@
         Vector<PageVisit> visits =
             (Vector<PageVisit>) session.getAttribute("activity");
         for (PageVisit visit : visits) {
-            out.print(visit.getRequest());
+            out.print(visit.getRequest() + " ");
             if (visit.getIpAddress() != null) {
-                out.print("IP: " + visit.getIpAddress().getHostAddress());
+                out.print("IP: " + visit.getIpAddress().getHostAddress() + " ");
             }
-            out.print("Date: " + format.format(visit.getEnteredTimestamp()));
+            out.print("Date: " + format.format(visit.getEnteredTimestamp()) + " ");
             if (visit.getLeftTimestamp() != null) {
-                out.print("stayed for " + (visit.getLeftTimestamp() - visit.getEnteredTimestamp()) + " seconds");
+                out.print("stayed for " +
+                        (visit.getLeftTimestamp() - visit.getEnteredTimestamp()) / 1000
+                        + " seconds");
             }
             out.print("<br/><br/>");
         }
