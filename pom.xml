@@ -36,12 +36,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.6</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>javax.servlet.jsp.jstl</artifactId>
             <version>1.2.2</version>
@@ -66,7 +60,7 @@
     </dependencies>
 
     <build>
-        <finalName>Shopping-Cart</finalName>
+        <finalName>Session-Activity</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
